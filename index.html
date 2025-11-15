@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <meta name="description" content="一个关于技术、生活和思考的个人博客。">
+    <meta name="author" content="你的名字">
+    <style>
+        /* --- 全局样式重置与基础设定 --- */
+        :root {
+            --primary-color: #333;
+            --secondary-color: #555;
+            --background-color: #f4f4f4;
+            --card-background: #fff;
+            --accent-color: #007bff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 头部区域 --- */
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 40px;
+        }
+
+        .header img.avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--card-background);
+            box-shadow: 0 4px 8px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .header img.avatar:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .header h1 {
+            margin: 20px 0 10px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .header p.bio {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        /* --- 社交链接 --- */
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links li a {
+            display: inline-block;
+            font-size: 1.5rem; /* 图标大小 */
+            color: var(--secondary-color);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links li a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        /* 使用SVG图标代替字体图标，更轻量 */
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+
+        /* --- 主要内容区域：文章列表 --- */
+        .main-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .post-item {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px var(--shadow-color);
+        }
+
+        .post-item h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+        
+        .post-item h3 a {
+            color: var(--primary-color);
+        }
+        
+        .post-item h3 a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .post-excerpt {
+            color: var(--secondary-color);
+        }
+
+        /* --- 页脚 --- */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* --- 响应式设计 --- */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p.bio {
+                font-size: 1rem;
+            }
+            .post-item {
+                padding: 20px;
+            }
+            .post-item h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ========== 头部区域 ========== -->
+        <header class="header">
+            <!-- TODO: 替换为你的 GitHub 头像链接 -->
+            <img src="https://github.com/github.png?size=120" alt="博主头像" class="avatar">
+            
+            <!-- TODO: 修改为你的名字 -->
+            <h1>你的名字</h1>
+            
+            <!-- TODO: 修改为你的个人简介 -->
+            <p class="bio">一名热爱探索的全栈开发者。在这里分享技术、记录生活、沉淀思考。</p>
+
+            <!-- TODO: 修改或增删你的社交链接 -->
+            <ul class="social-links">
+                <li>
+                    <a href="https://github.com/你的用户名" target="_blank" title="GitHub">
+                        <svg class="icon" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:你的邮箱@example.com" title="Email">
+                        <svg class="icon" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.558z"></path></svg>
+                    </a>
+                </li>
+                <li>
+                    <!-- 示例：添加一个 Twitter 链接 -->
+                    <a href="https://twitter.com/你的用户名" target="_blank" title="Twitter">
+                        <svg class="icon" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path></svg>
+                    </a>
+                </li>
+            </ul>
+        </header>
+
+        <!-- ========== 主要内容区域 ========== -->
+        <main class="main-content">
+            <h2>最新文章</h2>
+            
+            <!-- TODO: 在下方添加你的文章条目 -->
+            <ul class="post-list">
+                
+                <!-- 文章条目 1 -->
+                <li class="post-item">
+                    <h3><a href="./posts/article-1.html">第一篇文章：如何搭建个人博客</a></h3>
+                    <p class="post-meta">发布于 <time datetime="2023-10-27">2023年10月27日</time></p>
+                    <p class="post-excerpt">
+                        这是我的第一篇文章。本文将详细介绍如何使用 GitHub Pages 和一个简单的 HTML 文件从零开始搭建一个属于你自己的个人博客...
+                    </p>
+                </li>
+
+                <!-- 文章条目 2 -->
+                <li class="post-item">
+                    <h3><a href="./posts/article-2.html">深入理解 JavaScript 中的 `this`</a></h3>
+                    <p class="post-meta">发布于 <time datetime="2023-10-25">2023年10月25日</time></p>
+                    <p class="post-excerpt">
+                        `this` 关键字是 JavaScript 中一个非常重要但又常常令人困惑的概念。本文将通过几个生动的例子，带你彻底搞懂 `this` 的指向问题...
+                    </p>
+                </li>
+
+                <!-- 文章条目 3 -->
+                <li class="post-item">
+                    <h3><a href="./posts/article-3.html">我的2023年终总结</a></h3>
+                    <p class="post-meta">发布于 <time datetime="2023-10-20">2023年10月20日</time></p>
+                    <p class="post-excerpt">
+                        回顾过去的一年，有收获也有遗憾。在这里记录下我的成长、学习和对未来的展望。
+                    </p>
+                </li>
+                
+                <!-- 您可以在此继续添加更多文章条目... -->
+
+            </ul>
+        </main>
+
+        <!-- ========== 页脚区域 ========== -->
+        <footer class="footer">
+            <p>&copy; 2023 <a href="#">你的名字</a>. All Rights Reserved.</p>
+            <p>Powered by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
